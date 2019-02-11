@@ -1,1 +1,1 @@
-# rpi-phenotyping
+# Raspberry Pi Phenotyping Project
