@@ -29,17 +29,10 @@ def main():
 
 def get_time_and_date(date_time):
 
-    date = date_time.split(" ")[0].split("-")
-    # new_date = date[1] + date[2] + date[0]
-    
-    # print(date)
-    # print(new_date)
+    date = date_time.split(" ")[0]
     
     time = date_time.split(" ")[1].split(".")[0].split(":")
-    new_time = time[0]
-    
-    # print(time)
-    # print(new_time)
+    new_time = time[0] + "-" + time[1] + "-" + time[2]
 
     return date, new_time
 
@@ -50,7 +43,7 @@ def capture(cam):
     date, time = get_time_and_date(date_time)
     zone_number = str(socket.gethostname())[-1]
 
-    cmd = "raspistill -o ~/Desktop/camera%d/z%sc%d_%s_%s.png" % (cam, zone_number, cam, date, time)
+    cmd = "raspistill -o ~/Desktop/camera%d/z%sc%d--%s--%s.png" % (cam, zone_number, cam, date, time)
     os.system(cmd)
     
 if __name__ == "__main__":
